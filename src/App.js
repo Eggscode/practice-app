@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import Products from './Products';
+import { useState } from 'react';
+
 
 function App() {
+const title = 'React Ptractice';
+const link= 'www.google.com'
+const[name, setName]= useState('Sandalson');
+const[age, setAge]= useState(32);
+
+const changeName= ()=>{
+  setName('Mickey')
+  setAge(24)
+}
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="landing-page">
+        <h1 onClick={changeName}>{title}</h1>
+        <p>{name} is {age} years old <a href={link}>more...</a></p>
+      </div>
+
+      <Products/>
     </div>
   );
 }
