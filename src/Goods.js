@@ -1,19 +1,18 @@
-
-
-const Goods = () => {
-    const person= [
-        {name: 'sandalson', age: 19, location: 'Delta', id: 02},
-        {name: 'Unwana', age: 20, location: 'Abuja', id: 03},
-        {name: 'Abigail', age: 02, location: 'China', id: 04}
-    ]
+const Goods = ({person, title, handleDelete}) => {
+    
     return (
         <div>
-           {person.forEach(persons => {
-               <div className='persons' key={person.id}>
-                   <h3>{persons.name}</h3>
-                   <h4>{persons.location}</h4>
-               </div>
-           })}
+           {person.map((persons)=>{
+               return(
+                    <div className='persons' key={persons.id}>
+                        <h3 style ={{color: '#fcfc'}}>{persons.name}</h3>
+                        <h4>{persons.location}</h4>
+                        <button onClick={handleDelete}>Click me</button>
+                        {/* {console.log(persons.name)} */}
+                    </div>
+                    )})}
+
+                    <p>{title}</p>
         </div>
     )
 }
